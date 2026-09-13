@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Rose — Meridian Software Systems</title>
+  <meta name="description" content="Rose is a from-scratch, capability-based microkernel written in Rust: the kernel at the base of the larger Meridian project.">
+  <meta name="theme-color" content="#0B0D11">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Meridian Software Systems">
+  <meta property="og:title" content="Rose">
+  <meta property="og:description" content="A from-scratch, capability-based microkernel in Rust: the kernel under the larger Meridian project.">
+  <meta name="twitter:card" content="summary">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Source+Sans+3:ital,wght@0,400;0,500;0,600;1,400&family=Source+Code+Pro:wght@400;500&display=swap">
+  <link rel="stylesheet" href="assets/style.css">
+  <script>document.documentElement.className += " js";</script>
+</head>
+<body>
+
+<a href="#main" class="skip-link">Skip to content</a>
+
+<header>
+  <div class="wrap header-inner">
+    <a href="index.html" class="logo" aria-label="Meridian — home">
+      <svg class="logo-mark" viewBox="0 0 32 32" width="28" height="28" fill="none" aria-hidden="true">
+        <circle cx="16" cy="16" r="14.5" stroke="#7D8294" stroke-width="0.75"/>
+        <line x1="16" y1="1.5" x2="16" y2="30.5" stroke="#505468" stroke-width="0.5"/>
+        <line x1="1.5" y1="16" x2="30.5" y2="16" stroke="#505468" stroke-width="0.5"/>
+        <polygon points="16,3 13.5,13 18.5,13" fill="#C8863A"/>
+        <polygon points="16,29 13.5,19 18.5,19" fill="#505468"/>
+        <polygon points="29,16 19,13.5 19,18.5" fill="#505468"/>
+        <polygon points="3,16 13,13.5 13,18.5" fill="#505468"/>
+        <circle cx="16" cy="16" r="1.5" fill="#C8863A"/>
+      </svg>
+      <span class="logo-text">Meridian</span>
+    </a>
+    <nav class="nav" aria-label="Primary">
+      <a href="index.html#projects" class="nav-link" aria-current="page">Projects</a>
+      <a href="blog.html" class="nav-link">Changelog</a>
+      <a href="index.html#about" class="nav-link">About</a>
+      <a href="https://github.com/TrashPanda2481" class="gh-link" target="_blank" rel="noopener">
+        <svg viewBox="0 0 16 16" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+        GitHub
+      </a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap" id="main">
+  <section class="subhero">
+    <nav class="crumbs" aria-label="Breadcrumb">
+      <a href="index.html">Meridian</a>
+      <span class="sep">/</span>
+      <a href="index.html#projects">Projects</a>
+      <span class="sep">/</span>
+      <span>Rose</span>
+    </nav>
+    <h1>Rose</h1>
+    <p class="lead">The kernel at the base of Meridian. Rose is a capability-based microkernel written from scratch in Rust, not Unix and not NT, developed QEMU-first and checked on real hardware.</p>
+    <div class="meta-row">
+      <span class="proj-tech">Rust</span>
+      <span class="status plan"><span class="dot"></span>Phase 0 · kernel bring-up</span>
+      <a href="https://github.com/TrashPanda2481/rose" class="btn btn-ghost" target="_blank" rel="noopener">
+        <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+        GitHub
+      </a>
+    </div>
+  </section>
+
+  <article class="prose">
+    <h2>What Rose is</h2>
+    <p>Rose is the kernel, not the operating system. <strong>Meridian</strong> is the operating system, and it will be assembled from several components built one at a time; Rose is the one at the base. It's written from scratch in <strong>Rust</strong> and isn't derived from Unix or from Windows NT. As a <strong>capability-based microkernel</strong>, Rose is the foundation the rest of Meridian stands on, not the whole system.</p>
+    <p>Capabilities are the core idea. Nothing in Rose has ambient authority the way a Unix process runs as root. A component can only touch what it has been handed, as an unforgeable token, so the line between what code can and can't do is concrete instead of assumed.</p>
+    <p>Development is <strong>QEMU-first</strong>. Rose boots under emulation, where the whole thing can be inspected, changed, and reset in seconds; every milestone is then re-checked under hardware virtualization in VirtualBox before it counts as done, which has already caught real bugs the emulator never triggered.</p>
+
+    <h2>The design bets</h2>
+    <ul>
+      <li><strong>Capabilities, not Unix permissions.</strong> Access comes from holding a token, not from who you are. There is no ambient root.</li>
+      <li><strong>IPC is the only kernel primitive.</strong> No sprawling syscall table. Components talk to the kernel and to each other by passing messages.</li>
+      <li><strong>Userspace is a component graph, not a process tree.</strong> The system is a set of parts wired together, not a hierarchy of forked processes.</li>
+      <li><strong>No POSIX until the native model is proven.</strong> If a compatibility layer ever exists, it's a server added later, not the shape of the system.</li>
+      <li><strong>Rust throughout.</strong> Whole classes of kernel bug, use-after-free and buffer overruns among them, are caught at compile time instead of in a crash log.</li>
+    </ul>
+
+    <h2>Bespoke where it matters, standard where it doesn't</h2>
+    <p>Rose builds original where a piece defines what it is, and takes the standard where a piece is only compliance. The capability model, IPC, and component graph are bespoke, because that's what makes Rose neither Unix nor NT. The boot chain isn't: it uses <strong>Limine</strong>, because BIOS and UEFI bring-up is a solved problem with no design worth reinventing. The same test gets applied to everything that comes later, from storage to drivers to the interface.</p>
+
+    <h2>What's running</h2>
+    <p>Rose is early, but it's real code that boots, not a paper design:</p>
+    <ul>
+      <li><strong>Boots to userspace</strong> on QEMU under both BIOS and UEFI, with VirtualBox as a real-hardware second opinion before anything is called done. Boot output now renders on screen through a framebuffer console, not just over serial.</li>
+      <li><strong>Memory and CPU foundations:</strong> a physical frame allocator, a kernel heap, per-address-space page tables, a full interrupt setup, and a preemptive round-robin scheduler that keeps every task isolated in its own address space.</li>
+      <li><strong>Capabilities work:</strong> each task owns a capability space with copy, mint, move, and revoke; revoking cascades through the whole derivation tree. Untyped memory retypes into kernel objects, and all of it is reachable from ring 3.</li>
+      <li><strong>IPC is underway:</strong> an endpoint object with blocking send and receive, and call and reply on top, so a task can send a message and block for a specific answer. Verified on QEMU and on real hardware.</li>
+      <li><strong>Hardware detection has started:</strong> read-only PCI enumeration, reading what standard devices report about themselves, so Rose can recognize hardware without vendor-specific drivers.</li>
+      <li><strong>The unsafe code gets audited.</strong> A focused security pass over the kernel found and fixed real privilege-boundary bugs, a ring-3 escalation among them, before the project moved on; in kernel code a bug can mean a crossed trust boundary, not just a wrong answer.</li>
+    </ul>
+    <p>Still ahead: boot handoff, a real component model, and the adaptation layer below. The foundation is being finished before the house goes up.</p>
+
+    <h2>Where this is headed</h2>
+    <p>The kernel is the groundwork for the same idea Compass is testing over on <a href="project-meridian-os.html">Meridian OS</a>, made native. The end state is a system that watches, in real time, how it's actually being used and adapts to the person, instead of making the person adapt to it. On Debian that lives in Compass, an app on top of a generic OS. In Meridian it's meant to be built in, native to the system rather than an app sitting on top.</p>
+    <p>It carries no commercial cruft: no telemetry, no ads, no forced accounts, none of the weight an OS hauls around for a business model Rose doesn't have. That adaptation layer is deferred on purpose; it needs capabilities, IPC, and a real component graph to observe before it can mean anything, and those are being built first.</p>
+    <p>Rose is one piece of a much larger build, made from scratch by one person, on its own timeline. Each part is built on its own, then brought together later.</p>
+
+    <h2>At a glance</h2>
+    <dl class="spec">
+      <div class="spec-row"><dt>Language</dt><dd>Rust (no_std, edition 2021)</dd></div>
+      <div class="spec-row"><dt>Type</dt><dd>Capability-based microkernel, IPC-first</dd></div>
+      <div class="spec-row"><dt>Boot</dt><dd>Limine (BIOS + UEFI)</dd></div>
+      <div class="spec-row"><dt>Dev &amp; test</dt><dd>QEMU first, VirtualBox for real-hardware checks</dd></div>
+      <div class="spec-row"><dt>Stage</dt><dd>Phase 0, kernel bring-up</dd></div>
+      <div class="spec-row"><dt>Source</dt><dd><a href="https://github.com/TrashPanda2481/rose" target="_blank" rel="noopener">github.com/TrashPanda2481/rose</a></dd></div>
+    </dl>
+
+    <div class="callout">
+      <p>Into kernels, Rust, or capability systems? Rose is public on GitHub; the <a href="https://github.com/TrashPanda2481/rose" target="_blank" rel="noopener">repository</a> has the full picture, and the <a href="blog.html">changelog</a> here carries the highlights.</p>
+    </div>
+
+    <div class="post-nav">
+      <a href="project-meridian-os.html">← Meridian OS</a>
+      <a href="project-waypoint.html">Next: Waypoint →</a>
+    </div>
+  </article>
+</main>
+
+<footer>
+  <div class="wrap footer-inner">
+    <nav class="footer-nav" aria-label="Footer">
+      <a href="index.html#projects">Projects</a>
+      <a href="blog.html">Changelog</a>
+      <a href="index.html#about">About</a>
+      <a href="https://github.com/TrashPanda2481" target="_blank" rel="noopener">GitHub</a>
+    </nav>
+    <div class="footer-meta">
+      <span class="footer-copy">© 2026 Meridian Software Systems, LLC</span>
+      <span class="footer-loc">Los Angeles, CA</span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/site.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Waypoint — Meridian Software Systems</title>
+  <meta name="description" content="Waypoint is a provenance-first driver manager for Windows: it shows where every driver comes from and never installs without a restore point and a backup. Native AOT CLI plus a WPF app, GPL-3.0.">
+  <meta name="theme-color" content="#0B0D11">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Meridian Software Systems">
+  <meta property="og:title" content="Waypoint">
+  <meta property="og:description" content="A provenance-first driver manager for Windows. Native AOT CLI and a WPF app, GPL-3.0.">
+  <meta name="twitter:card" content="summary">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Source+Sans+3:ital,wght@0,400;0,500;0,600;1,400&family=Source+Code+Pro:wght@400;500&display=swap">
+  <link rel="stylesheet" href="assets/style.css">
+  <script>document.documentElement.className += " js";</script>
+</head>
+<body>
+
+<a href="#main" class="skip-link">Skip to content</a>
+
+<header>
+  <div class="wrap header-inner">
+    <a href="index.html" class="logo" aria-label="Meridian — home">
+      <svg class="logo-mark" viewBox="0 0 32 32" width="28" height="28" fill="none" aria-hidden="true">
+        <circle cx="16" cy="16" r="14.5" stroke="#7D8294" stroke-width="0.75"/>
+        <line x1="16" y1="1.5" x2="16" y2="30.5" stroke="#505468" stroke-width="0.5"/>
+        <line x1="1.5" y1="16" x2="30.5" y2="16" stroke="#505468" stroke-width="0.5"/>
+        <polygon points="16,3 13.5,13 18.5,13" fill="#C8863A"/>
+        <polygon points="16,29 13.5,19 18.5,19" fill="#505468"/>
+        <polygon points="29,16 19,13.5 19,18.5" fill="#505468"/>
+        <polygon points="3,16 13,13.5 13,18.5" fill="#505468"/>
+        <circle cx="16" cy="16" r="1.5" fill="#C8863A"/>
+      </svg>
+      <span class="logo-text">Meridian</span>
+    </a>
+    <nav class="nav" aria-label="Primary">
+      <a href="index.html#projects" class="nav-link" aria-current="page">Projects</a>
+      <a href="blog.html" class="nav-link">Changelog</a>
+      <a href="index.html#about" class="nav-link">About</a>
+      <a href="https://github.com/TrashPanda2481" class="gh-link" target="_blank" rel="noopener">
+        <svg viewBox="0 0 16 16" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+        GitHub
+      </a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap" id="main">
+  <section class="subhero">
+    <nav class="crumbs" aria-label="Breadcrumb">
+      <a href="index.html">Meridian</a>
+      <span class="sep">/</span>
+      <a href="index.html#projects">Projects</a>
+      <span class="sep">/</span>
+      <span>Waypoint</span>
+    </nav>
+    <h1>Waypoint</h1>
+    <p class="lead">A driver manager for Windows that puts provenance and safety first: it shows where every driver comes from, refuses ambiguous matches until you confirm them, and never installs without a restore point and a backup. A command line for automation, a desktop app for the technician.</p>
+    <div class="meta-row">
+      <span class="proj-tech">C# · .NET 8</span>
+      <span class="status"><span class="dot"></span>v0.2.0-alpha.1 · pre-alpha</span>
+      <a href="https://github.com/TrashPanda2481/Waypoint-Driver-Manager" class="btn btn-ghost" target="_blank" rel="noopener">
+        <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+        GitHub
+      </a>
+    </div>
+  </section>
+
+  <article class="prose">
+    <h2>What Waypoint is</h2>
+    <p>Waypoint detects, sources, and installs drivers on Windows. It exists to fix the structural problems in the driver-pack tools technicians reach for, like Snappy Driver Installer, rather than give them a new coat of paint. There are two ways in: a command line built for automation and an IT toolchain, and a desktop app built for a person working through one machine at a time.</p>
+    <p>It's honest about where it is. Today Waypoint reads your real device tree and tells you exactly what it would do. It does not install a driver for you yet; that's the last gate it's working toward, and it won't pretend otherwise.</p>
+
+    <h2>Provenance and safety first</h2>
+    <p>The whole design starts from one rule: you should always know where a driver came from, and nothing irreversible should happen without a way back.</p>
+    <ul>
+      <li><strong>Every candidate shows its source.</strong> No anonymous blobs pulled out of a pack. If Waypoint suggests a driver, it tells you where it got it.</li>
+      <li><strong>Ambiguous matches are refused.</strong> When several devices share one hardware ID, Waypoint blocks them until you confirm each by hand. On a real test machine that was 103 of 233 devices, and it's the exact failure mode behind one of Snappy Driver Installer's long-standing bugs.</li>
+      <li><strong>Nothing installs without a net.</strong> A batch requires a restore point first, replaced drivers are backed up before they're touched, and a signature policy gate stands in front of the whole thing.</li>
+      <li><strong>Every action is logged.</strong> An append-only audit trail records what happened, so a machine's history is something you can actually read back.</li>
+    </ul>
+    <p>Before anything runs, Waypoint lays the installed driver next to the candidate and compares them field by field, so the change is visible instead of assumed.</p>
+
+    <h2>A command line and a window</h2>
+    <p>Both front ends sit on one shared core.</p>
+    <p>The command line is <strong>Native AOT</strong>: a single <code>waypoint.exe</code> that needs no runtime installed and no network, which is exactly the state a machine tends to be in when it needs a driver tool. <code>scan</code>, <code>plan</code>, <code>apply</code>, and <code>driverpack</code> all speak JSON and return contract exit codes, so they drop straight into scripts, Intune, or a PDQ job. <code>apply</code> is a dry run unless you pass <code>--apply</code>.</p>
+    <p>The window is for the technician: a triage tree that groups devices by tier and PnP class, and an installed-versus-candidate card that puts the two side by side before any decision. It ships as a signed MSI or a portable zip.</p>
+
+    <h2>What works today</h2>
+    <p>Waypoint is pre-alpha and specific about what that means. Validated on real Windows 11 hardware:</p>
+    <ul>
+      <li>Device enumeration through CfgMgr32, cross-checked against <code>Get-PnpDevice</code> for an exact match; 233 devices read in about 400 milliseconds.</li>
+      <li>Hardware-ID ambiguity detection and blocking.</li>
+      <li><code>scan</code>, <code>plan</code>, <code>apply</code>, and <code>driverpack</code> as dry runs, with the full safety chain: signature gate, backup, restore point, audit log.</li>
+      <li>The desktop window for scanning and inspection.</li>
+      <li>Signed MSI and portable builds, with and without a bundled runtime.</li>
+    </ul>
+    <p>Not there yet: installing. <code>apply --apply</code> has never run against a live driver, driver sources so far only cover Dell, Lenovo, and HP, and the builds are self-signed, so their reputation with SmartScreen and antivirus is still unproven. These are named gates, not surprises.</p>
+
+    <h2>Why it's GPL</h2>
+    <p>Waypoint is <strong>GPL-3.0-or-later</strong>, on purpose. The tool people currently reach for is closed and abandoned, and that is the exact problem Waypoint is trying not to become. Copyleft means anyone who ships a modified version has to publish their source, so a fork can't quietly turn into the next unmaintained binary nobody can inspect.</p>
+
+    <h2>At a glance</h2>
+    <dl class="spec">
+      <div class="spec-row"><dt>Language</dt><dd>C# on .NET 8</dd></div>
+      <div class="spec-row"><dt>CLI</dt><dd>Native AOT, no runtime needed (<code>waypoint.exe</code>)</dd></div>
+      <div class="spec-row"><dt>GUI</dt><dd>WPF desktop app (<code>waypoint-desktop.exe</code>)</dd></div>
+      <div class="spec-row"><dt>Platform</dt><dd>Windows</dd></div>
+      <div class="spec-row"><dt>Stage</dt><dd>v0.2.0-alpha.1, pre-alpha (reads and plans; no install yet)</dd></div>
+      <div class="spec-row"><dt>License</dt><dd>GPL-3.0-or-later</dd></div>
+      <div class="spec-row"><dt>Source</dt><dd><a href="https://github.com/TrashPanda2481/Waypoint-Driver-Manager" target="_blank" rel="noopener">github.com/TrashPanda2481/Waypoint-Driver-Manager</a></dd></div>
+    </dl>
+
+    <div class="callout">
+      <p>Waypoint is public on GitHub under GPL-3.0. <a href="https://github.com/TrashPanda2481/Waypoint-Driver-Manager" target="_blank" rel="noopener">Read the code or grab a build</a>, and watch the <a href="blog.html">changelog</a> for when install lands.</p>
+    </div>
+
+    <div class="post-nav">
+      <a href="project-rose.html">← Rose</a>
+      <a href="project-vector-toolset.html">Next: Vector Toolset →</a>
+    </div>
+  </article>
+</main>
+
+<footer>
+  <div class="wrap footer-inner">
+    <nav class="footer-nav" aria-label="Footer">
+      <a href="index.html#projects">Projects</a>
+      <a href="blog.html">Changelog</a>
+      <a href="index.html#about">About</a>
+      <a href="https://github.com/TrashPanda2481" target="_blank" rel="noopener">GitHub</a>
+    </nav>
+    <div class="footer-meta">
+      <span class="footer-copy">© 2026 Meridian Software Systems, LLC</span>
+      <span class="footer-loc">Los Angeles, CA</span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/site.js" defer></script>
+</body>
+</html>

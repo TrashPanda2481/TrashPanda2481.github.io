@@ -6,277 +6,26 @@
   <title>Meridian Software Systems</title>
   <meta name="description" content="Open-source systems software, from kernel to desktop. Operating systems, drivers, bootable toolkits, and the kernel underneath.">
   <meta name="theme-color" content="#0B0D11">
+
+  <!-- Open Graph / social. Add a 1200x630 raster image at assets/og.png to enable og:image. -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Meridian Software Systems">
+  <meta property="og:title" content="Meridian Software Systems">
+  <meta property="og:description" content="Open-source systems software, from kernel to desktop.">
+  <meta name="twitter:card" content="summary">
+
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Source+Sans+3:ital,wght@0,400;0,500;0,600;1,400&family=Source+Code+Pro:wght@400;500&display=swap">
-  <style>
-    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-    :root {
-      color-scheme: dark;
-      --ground: #0B0D11;
-      --surface: #12151B;
-      --surface-raised: #181C24;
-      --border: #1E2230;
-      --border-hover: #2A2F3E;
-      --text-primary: #E2E4EA;
-      --text-secondary: #7D8294;
-      --text-tertiary: #505468;
-      --accent: #C8863A;
-      --accent-dim: #9E6A2E;
-      --font-display: 'Manrope', system-ui, -apple-system, sans-serif;
-      --font-body: 'Source Sans 3', system-ui, -apple-system, sans-serif;
-      --font-mono: 'Source Code Pro', ui-monospace, 'SFMono-Regular', monospace;
-    }
-    body {
-      background: var(--ground);
-      color: var(--text-primary);
-      font-family: var(--font-body);
-      font-size: 17px;
-      line-height: 1.65;
-      padding: 0 24px;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-    }
-    .wrap { max-width: 960px; margin: 0 auto; }
-    a { color: inherit; }
-
-    /* ---- Header ---- */
-    header { padding-block: 32px; }
-    .header-inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-    .logo {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      text-decoration: none;
-    }
-    .logo-text {
-      font-family: var(--font-display);
-      font-weight: 700;
-      font-size: 18px;
-      letter-spacing: -0.01em;
-    }
-    .gh-link {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      color: var(--text-secondary);
-      text-decoration: none;
-      font-family: var(--font-display);
-      font-size: 14px;
-      font-weight: 500;
-      transition: color 0.15s;
-    }
-    .gh-link:hover { color: var(--text-primary); }
-
-    /* ---- Hero ---- */
-    .hero {
-      padding-block: 80px 96px;
-      border-bottom: 1px solid var(--border);
-    }
-    .hero-tag {
-      font-family: var(--font-mono);
-      font-size: 13px;
-      font-weight: 500;
-      color: var(--accent);
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      margin-bottom: 20px;
-    }
-    .hero h1 {
-      font-family: var(--font-display);
-      font-size: clamp(28px, 5vw, 48px);
-      font-weight: 800;
-      line-height: 1.1;
-      letter-spacing: -0.025em;
-      max-width: 720px;
-      text-wrap: balance;
-      margin-bottom: 24px;
-    }
-    .hero-sub {
-      font-size: 18px;
-      color: var(--text-secondary);
-      max-width: 560px;
-      line-height: 1.6;
-    }
-
-    /* ---- Projects ---- */
-    .projects {
-      padding-block: 72px 80px;
-      border-bottom: 1px solid var(--border);
-    }
-    .section-label {
-      font-family: var(--font-mono);
-      font-size: 12px;
-      font-weight: 500;
-      color: var(--text-tertiary);
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      margin-bottom: 32px;
-    }
-    .pgrid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 16px;
-    }
-
-    .proj {
-      display: flex;
-      flex-direction: column;
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      text-decoration: none;
-      transition: border-color 0.15s, background-color 0.15s;
-      overflow: hidden;
-    }
-    a.proj { cursor: pointer; }
-    a.proj:hover {
-      border-color: var(--border-hover);
-      background: var(--surface-raised);
-    }
-    div.proj { cursor: default; }
-
-    .proj-graphic {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      height: 160px;
-      background: var(--surface-raised);
-      border-bottom: 1px solid var(--border);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .proj-body { padding: 24px 28px 28px; display: flex; flex-direction: column; flex: 1; }
-
-    .proj-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 8px;
-      margin-bottom: 8px;
-    }
-    .proj h3 {
-      font-family: var(--font-display);
-      font-size: 20px;
-      font-weight: 700;
-      letter-spacing: -0.01em;
-    }
-    .proj-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 5px;
-      font-family: var(--font-mono);
-      font-size: 11px;
-      color: var(--accent);
-      background: rgba(200, 134, 58, 0.1);
-      border: 1px solid rgba(200, 134, 58, 0.2);
-      border-radius: 4px;
-      padding: 2px 8px;
-      white-space: nowrap;
-      letter-spacing: 0.02em;
-    }
-    .proj-desc {
-      font-size: 15px;
-      color: var(--text-secondary);
-      line-height: 1.55;
-      flex: 1;
-      margin-bottom: 20px;
-    }
-    .proj-foot {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-      flex-wrap: wrap;
-    }
-    .proj-tech {
-      font-family: var(--font-mono);
-      font-size: 12px;
-      color: var(--text-tertiary);
-      letter-spacing: 0.02em;
-    }
-    .proj-ver {
-      font-family: var(--font-mono);
-      font-size: 12px;
-      color: var(--accent-dim);
-      letter-spacing: 0.02em;
-    }
-
-    /* ---- About ---- */
-    .about { padding-block: 72px 80px; }
-    .about-body {
-      font-size: 18px;
-      color: var(--text-secondary);
-      max-width: 600px;
-      line-height: 1.65;
-    }
-
-    /* ---- Footer ---- */
-    footer {
-      padding-block: 32px 48px;
-      border-top: 1px solid var(--border);
-    }
-    .footer-inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-      flex-wrap: wrap;
-    }
-    .footer-copy, .footer-loc {
-      font-family: var(--font-mono);
-      font-size: 12px;
-      color: var(--text-tertiary);
-      letter-spacing: 0.01em;
-    }
-
-
-    /* ---- Meridian OS slideshow ---- */
-    .meridian-slides {
-      position: absolute;
-      inset: 0;
-    }
-    .meridian-slide {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center;
-      opacity: 0;
-      animation: meridian-cycle 24s infinite;
-    }
-    .meridian-slide:nth-child(1) { animation-delay: 0s; }
-    .meridian-slide:nth-child(2) { animation-delay: 6s; }
-    .meridian-slide:nth-child(3) { animation-delay: 12s; }
-    .meridian-slide:nth-child(4) { animation-delay: 18s; }
-    @keyframes meridian-cycle {
-      0% { opacity: 0; }
-      8% { opacity: 1; }
-      25% { opacity: 1; }
-      33% { opacity: 0; }
-      100% { opacity: 0; }
-    }
-    .proj-graphic-tall { height: 200px; }
-    /* ---- Responsive ---- */
-    @media (max-width: 640px) {
-      body { padding: 0 16px; }
-      .hero { padding-block: 56px 64px; }
-      .projects, .about { padding-block: 56px 64px; }
-      .pgrid { grid-template-columns: 1fr; }
-      .proj-graphic { height: 140px; }
-      .proj-graphic-tall { height: 160px; }
-    }
-  </style>
+  <link rel="stylesheet" href="assets/style.css">
+  <script>document.documentElement.className += " js";</script>
 </head>
 <body>
 
+<a href="#main" class="skip-link">Skip to content</a>
+
 <header>
   <div class="wrap header-inner">
-    <a href="/" class="logo">
+    <a href="index.html" class="logo" aria-label="Meridian — home">
       <svg class="logo-mark" viewBox="0 0 32 32" width="28" height="28" fill="none" aria-hidden="true">
         <circle cx="16" cy="16" r="14.5" stroke="#7D8294" stroke-width="0.75"/>
         <line x1="16" y1="1.5" x2="16" y2="30.5" stroke="#505468" stroke-width="0.5"/>
@@ -289,223 +38,159 @@
       </svg>
       <span class="logo-text">Meridian</span>
     </a>
-    <a href="https://github.com/TrashPanda2481" class="gh-link" target="_blank" rel="noopener">
-      <svg viewBox="0 0 16 16" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
-      GitHub
-    </a>
+    <nav class="nav" aria-label="Primary">
+      <a href="#projects" class="nav-link">Projects</a>
+      <a href="blog.html" class="nav-link">Changelog</a>
+      <a href="#about" class="nav-link">About</a>
+      <a href="https://github.com/TrashPanda2481" class="gh-link" target="_blank" rel="noopener">
+        <svg viewBox="0 0 16 16" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+        GitHub
+      </a>
+    </nav>
   </div>
 </header>
 
-<main class="wrap">
+<main class="wrap" id="main">
   <section class="hero">
     <p class="hero-tag">Control · Focus · Clarity</p>
     <h1>Open-source systems software, from kernel to desktop.</h1>
-    <p class="hero-sub">Building the infrastructure layer; operating systems, drivers, bootable toolkits, and the kernel underneath. Everything ships open-source.</p>
+    <p class="hero-sub">Meridian builds the infrastructure layer: operating systems, drivers, bootable toolkits, and the kernel underneath. Everything ships open-source, built in public.</p>
+    <div class="btn-row">
+      <a href="#projects" class="btn btn-primary">
+        View projects
+        <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <a href="https://github.com/TrashPanda2481" class="btn btn-ghost" target="_blank" rel="noopener">
+        <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+        Browse the source
+      </a>
+    </div>
   </section>
 
-  <section class="projects">
-    <p class="section-label">Projects</p>
+  <section class="principles reveal" aria-labelledby="principles-label">
+    <p class="section-label" id="principles-label"><span class="num">01</span>Principles</p>
+    <div class="pcols">
+      <div class="pcol">
+        <h3><span class="glyph">→</span>Control</h3>
+        <p>Software that does what you tell it and nothing you didn't. No telemetry you can't inspect, no defaults you can't change, no layers wedged between you and the machine.</p>
+      </div>
+      <div class="pcol">
+        <h3><span class="glyph">→</span>Focus</h3>
+        <p>One job, done properly. Each tool has a sharp edge and a clear boundary, built to solve a real problem, not to grow into a platform that solves none of them well.</p>
+      </div>
+      <div class="pcol">
+        <h3><span class="glyph">→</span>Clarity</h3>
+        <p>Open source, all the way down. The code is the documentation of record; if you want to know exactly what a tool does, you can read it and build it yourself.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="projects reveal" id="projects" aria-labelledby="projects-label">
+    <p class="section-label" id="projects-label"><span class="num">02</span>Projects</p>
     <div class="pgrid">
 
-      <!-- Meridian OS — screenshots, under development -->
-      <div class="proj">
-        <div class="proj-graphic proj-graphic-tall">
-          <div class="meridian-slides">
-            <img class="meridian-slide" src="data:image/jpeg;base64,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" alt="Meridian OS desktop with world map wallpaper">
-            <img class="meridian-slide" src="data:image/jpeg;base64,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" alt="Bearing system panel showing host info">
-            <img class="meridian-slide" src="data:image/jpeg;base64,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" alt="Meridian OS GRUB bootloader with compass rose">
-            <img class="meridian-slide" src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQIAJQAlAAD/2wBDAA0JCgsKCA0LCgsODg0PEyAVExISEyccHhcgLikxMC4pLSwzOko+MzZGNywtQFdBRkxOUlNSMj5aYVpQYEpRUk//2wBDAQ4ODhMREyYVFSZPNS01T09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT0//wAARCADZAfQDASIAAhEBAxEB/8QAGQABAAMBAQAAAAAAAAAAAAAAAAECBAMH/8QALBABAAECBQIFAgcAAAAAAAAAAAECEQMSEyExBFEUIiMzQTKRBVJhobHB4f/EABYBAQEBAAAAAAAAAAAAAAAAAAABAv/EABkRAQADAQEAAAAAAAAAAAAAAAABERJhIf/aAAwDAQACEQMRAD8A8wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAacKeljo8SMSmZx5nyVX2iNv9SZpYi2Yb6p/D9bqLUzkmj0rX2n9VcKei1MDVtl051LZvq3t/XDO+S1jsMfwhrp8JODRFU2q1fNtN8n8d1q56DT6jJnzTVfB547Sb4Z6xDR0vhvU8Tf6Jy88oxtDRwdLavL5435XXtUmfLcAGmQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB0yUW9z9nMBeaabXiuJntZWmImYvNoQIOmWi3uR9lJiImYib24nuj4BV8tP54+xNNF/c272UCgAVAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFoorqpqqppmaabXmI4uCo6VYOLTmzYdcZZy1Xjieys0V0xMzTMWm03jiUuFqVQFQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAATEzETETNp5hAC011Te9UzebzvyiZmeZnfdAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD/9k=" alt="Meridian OS splash screen">
-          </div>
+      <a href="project-meridian-os.html" class="proj">
+        <div class="proj-head">
+          <h3>Meridian OS</h3>
+          <svg class="arrow" viewBox="0 0 16 16" width="16" height="16" fill="none" aria-hidden="true"><path d="M4 12L12 4M12 4H5M12 4V11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </div>
-        <div class="proj-body">
-          <div class="proj-header">
-            <h3>Meridian OS</h3>
-            <span class="proj-badge">Under Development</span>
-          </div>
-          <p class="proj-desc">A custom Debian Trixie distribution with KDE Plasma 6 and the Compass guidance system. Built to stay out of the way.</p>
-          <div class="proj-foot">
-            <span class="proj-tech">Debian · KDE Plasma 6</span>
-            <span class="proj-ver">v1.0-b1</span>
-          </div>
+        <p class="proj-desc">A custom Debian Trixie distribution with KDE Plasma 6 and the Compass guidance system. Built to stay out of the way.</p>
+        <div class="proj-foot">
+          <span class="proj-tech">Debian · KDE Plasma 6</span>
+          <span class="status"><span class="dot"></span>v1.0-b1</span>
         </div>
-      </div>
+      </a>
 
-      <!-- Rose — private repo, no link -->
-      <div class="proj">
-        <div class="proj-graphic">
-          <svg viewBox="0 0 280 160" width="280" height="160" fill="none" aria-hidden="true">
-            <!-- CPU die outline -->
-            <rect x="90" y="30" width="100" height="100" rx="4" fill="#181C24" stroke="#2A2F3E" stroke-width="1"/>
-            <!-- Inner die -->
-            <rect x="105" y="45" width="70" height="70" rx="2" fill="#12151B" stroke="#1E2230" stroke-width="0.5"/>
-            <!-- Core pattern — petal/bloom microkernel -->
-            <g transform="translate(140, 80)">
-              <ellipse cx="0" cy="-14" rx="6" ry="14" fill="#C8863A" opacity="0.2" transform="rotate(0)"/>
-              <ellipse cx="0" cy="-14" rx="6" ry="14" fill="#C8863A" opacity="0.2" transform="rotate(60)"/>
-              <ellipse cx="0" cy="-14" rx="6" ry="14" fill="#C8863A" opacity="0.2" transform="rotate(120)"/>
-              <ellipse cx="0" cy="-14" rx="6" ry="14" fill="#C8863A" opacity="0.2" transform="rotate(180)"/>
-              <ellipse cx="0" cy="-14" rx="6" ry="14" fill="#C8863A" opacity="0.2" transform="rotate(240)"/>
-              <ellipse cx="0" cy="-14" rx="6" ry="14" fill="#C8863A" opacity="0.2" transform="rotate(300)"/>
-              <circle cx="0" cy="0" r="5" fill="#C8863A" opacity="0.5"/>
-              <circle cx="0" cy="0" r="2" fill="#C8863A"/>
-            </g>
-            <!-- Pins — top -->
-            <rect x="108" y="22" width="4" height="8" rx="1" fill="#505468"/>
-            <rect x="118" y="22" width="4" height="8" rx="1" fill="#505468"/>
-            <rect x="128" y="22" width="4" height="8" rx="1" fill="#505468"/>
-            <rect x="138" y="22" width="4" height="8" rx="1" fill="#505468"/>
-            <rect x="148" y="22" width="4" height="8" rx="1" fill="#505468"/>
-            <rect x="158" y="22" width="4" height="8" rx="1" fill="#505468"/>
-            <rect x="168" y="22" width="4" height="8" rx="1" fill="#505468"/>
-            <!-- Pins — bottom -->
-            <rect x="108" y="130" width="4" height="8" rx="1" fill="#505468"/>
-            <rect x="118" y="130" width="4" height="8" rx="1" fill="#505468"/>
-            <rect x="128" y="130" width="4" height="8" rx="1" fill="#505468"/>
-            <rect x="138" y="130" width="4" height="8" rx="1" fill="#505468"/>
-            <rect x="148" y="130" width="4" height="8" rx="1" fill="#505468"/>
-            <rect x="158" y="130" width="4" height="8" rx="1" fill="#505468"/>
-            <rect x="168" y="130" width="4" height="8" rx="1" fill="#505468"/>
-            <!-- Pins — left -->
-            <rect x="82" y="40" width="8" height="4" rx="1" fill="#505468"/>
-            <rect x="82" y="50" width="8" height="4" rx="1" fill="#505468"/>
-            <rect x="82" y="60" width="8" height="4" rx="1" fill="#505468"/>
-            <rect x="82" y="70" width="8" height="4" rx="1" fill="#505468"/>
-            <rect x="82" y="80" width="8" height="4" rx="1" fill="#505468"/>
-            <rect x="82" y="90" width="8" height="4" rx="1" fill="#505468"/>
-            <rect x="82" y="100" width="8" height="4" rx="1" fill="#505468"/>
-            <rect x="82" y="110" width="8" height="4" rx="1" fill="#505468"/>
-            <rect x="82" y="120" width="8" height="4" rx="1" fill="#505468"/>
-            <!-- Pins — right -->
-            <rect x="190" y="40" width="8" height="4" rx="1" fill="#505468"/>
-            <rect x="190" y="50" width="8" height="4" rx="1" fill="#505468"/>
-            <rect x="190" y="60" width="8" height="4" rx="1" fill="#505468"/>
-            <rect x="190" y="70" width="8" height="4" rx="1" fill="#505468"/>
-            <rect x="190" y="80" width="8" height="4" rx="1" fill="#505468"/>
-            <rect x="190" y="90" width="8" height="4" rx="1" fill="#505468"/>
-            <rect x="190" y="100" width="8" height="4" rx="1" fill="#505468"/>
-            <rect x="190" y="110" width="8" height="4" rx="1" fill="#505468"/>
-            <rect x="190" y="120" width="8" height="4" rx="1" fill="#505468"/>
-          </svg>
+      <a href="project-rose.html" class="proj">
+        <div class="proj-head">
+          <h3>Rose</h3>
+          <svg class="arrow" viewBox="0 0 16 16" width="16" height="16" fill="none" aria-hidden="true"><path d="M4 12L12 4M12 4H5M12 4V11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </div>
-        <div class="proj-body">
-          <div class="proj-header">
-            <h3>Rose</h3>
-          </div>
-          <p class="proj-desc">A capability microkernel written from scratch in Rust. QEMU-first development, building toward a minimal secure foundation.</p>
-          <div class="proj-foot">
-            <span class="proj-tech">Rust</span>
-            <span class="proj-ver">Phase 0</span>
-          </div>
+        <p class="proj-desc">A capability microkernel written from scratch in Rust. QEMU-first development, building toward a minimal secure foundation.</p>
+        <div class="proj-foot">
+          <span class="proj-tech">Rust</span>
+          <span class="status plan"><span class="dot"></span>Phase 0</span>
         </div>
-      </div>
+      </a>
 
-      <!-- Waypoint — private repo, no link -->
-      <div class="proj">
-        <div class="proj-graphic">
-          <svg viewBox="0 0 280 160" width="280" height="160" fill="none" aria-hidden="true">
-            <!-- CLI window frame -->
-            <rect x="40" y="20" width="200" height="120" rx="6" fill="#181C24" stroke="#2A2F3E" stroke-width="1"/>
-            <!-- Titlebar -->
-            <rect x="40" y="20" width="200" height="18" rx="6" fill="#1E2230"/>
-            <rect x="40" y="32" width="200" height="6" fill="#1E2230"/>
-            <circle cx="52" cy="29" r="3" fill="#505468"/>
-            <circle cx="62" cy="29" r="3" fill="#505468"/>
-            <circle cx="72" cy="29" r="3" fill="#505468"/>
-            <!-- Terminal content -->
-            <text x="50" y="54" font-family="'Source Code Pro', monospace" font-size="9" fill="#505468">C:\&gt;</text>
-            <text x="75" y="54" font-family="'Source Code Pro', monospace" font-size="9" fill="#C8863A">waypoint</text>
-            <text x="118" y="54" font-family="'Source Code Pro', monospace" font-size="9" fill="#7D8294">scan --all</text>
-            <text x="50" y="68" font-family="'Source Code Pro', monospace" font-size="9" fill="#505468">[info]</text>
-            <text x="80" y="68" font-family="'Source Code Pro', monospace" font-size="9" fill="#7D8294">Scanning devices...</text>
-            <text x="50" y="82" font-family="'Source Code Pro', monospace" font-size="9" fill="#505468">[ok]</text>
-            <text x="72" y="82" font-family="'Source Code Pro', monospace" font-size="9" fill="#7D8294">Found 12 devices, 3 need updates</text>
-            <text x="50" y="96" font-family="'Source Code Pro', monospace" font-size="9" fill="#505468">[ok]</text>
-            <text x="72" y="96" font-family="'Source Code Pro', monospace" font-size="9" fill="#C8863A" opacity="0.7">Intel UHD 770</text>
-            <text x="142" y="96" font-family="'Source Code Pro', monospace" font-size="9" fill="#7D8294">v31.0.101 -> v32.0.200</text>
-            <text x="50" y="110" font-family="'Source Code Pro', monospace" font-size="9" fill="#505468">[ok]</text>
-            <text x="72" y="110" font-family="'Source Code Pro', monospace" font-size="9" fill="#C8863A" opacity="0.7">Realtek Audio</text>
-            <text x="142" y="110" font-family="'Source Code Pro', monospace" font-size="9" fill="#7D8294">v6.0.9454 -> v6.0.9561</text>
-            <text x="50" y="124" font-family="'Source Code Pro', monospace" font-size="9" fill="#505468">C:\&gt;</text>
-            <rect x="65" y="118" width="6" height="10" fill="#C8863A" opacity="0.6"/>
-          </svg>
+      <a href="project-waypoint.html" class="proj">
+        <div class="proj-head">
+          <h3>Waypoint</h3>
+          <svg class="arrow" viewBox="0 0 16 16" width="16" height="16" fill="none" aria-hidden="true"><path d="M4 12L12 4M12 4H5M12 4V11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </div>
-        <div class="proj-body">
-          <div class="proj-header">
-            <h3>Waypoint</h3>
-          </div>
-          <p class="proj-desc">Driver management for Windows. A Native AOT CLI and WPF interface for what Device Manager won't handle.</p>
-          <div class="proj-foot">
-            <span class="proj-tech">C# · .NET 8</span>
-            <span class="proj-ver">v0.2.0-alpha.1</span>
-          </div>
+        <p class="proj-desc">Driver management for Windows. A Native AOT CLI and WPF interface for what Device Manager won't handle.</p>
+        <div class="proj-foot">
+          <span class="proj-tech">C# · .NET 8</span>
+          <span class="status"><span class="dot"></span>v0.2.0-alpha.1</span>
         </div>
-      </div>
+      </a>
 
-      <!-- Vector Toolset — private repo, no link -->
-      <div class="proj">
-        <div class="proj-graphic">
-          <svg viewBox="0 0 280 160" width="280" height="160" fill="none" aria-hidden="true">
-            <!-- USB drive body -->
-            <rect x="85" y="50" width="110" height="60" rx="5" fill="#181C24" stroke="#2A2F3E" stroke-width="1"/>
-            <!-- USB connector -->
-            <rect x="195" y="60" width="25" height="40" rx="2" fill="#1E2230" stroke="#2A2F3E" stroke-width="0.75"/>
-            <rect x="220" y="66" width="6" height="28" rx="1" fill="#2A2F3E"/>
-            <!-- USB connector inner slots -->
-            <rect x="200" y="68" width="16" height="3" rx="0.5" fill="#505468"/>
-            <rect x="200" y="76" width="16" height="3" rx="0.5" fill="#505468"/>
-            <rect x="200" y="84" width="16" height="3" rx="0.5" fill="#505468"/>
-            <rect x="200" y="92" width="16" height="3" rx="0.5" fill="#505468"/>
-            <!-- LED indicator -->
-            <circle cx="185" cy="64" r="2.5" fill="#C8863A" opacity="0.8"/>
-            <!-- Label area -->
-            <rect x="93" y="57" width="80" height="38" rx="2" fill="#12151B"/>
-            <!-- Vector logo on drive -->
-            <g transform="translate(115, 70)">
-              <!-- Crosshair/vector arrows -->
-              <line x1="0" y1="-12" x2="0" y2="12" stroke="#505468" stroke-width="0.75"/>
-              <line x1="-12" y1="0" x2="12" y2="0" stroke="#505468" stroke-width="0.75"/>
-              <!-- Arrow tips -->
-              <polygon points="0,-12 -2,-8 2,-8" fill="#C8863A" opacity="0.7"/>
-              <polygon points="12,0 8,-2 8,2" fill="#505468"/>
-              <polygon points="0,12 -2,8 2,8" fill="#505468"/>
-              <polygon points="-12,0 -8,-2 -8,2" fill="#505468"/>
-              <circle cx="0" cy="0" r="3" stroke="#C8863A" stroke-width="0.75" fill="none" opacity="0.5"/>
-            </g>
-            <!-- "VECTOR" text -->
-            <text x="133" y="90" font-family="'Source Code Pro', monospace" font-size="6.5" fill="#505468" text-anchor="middle" letter-spacing="0.15em">VECTOR</text>
-            <!-- Boot indicator text -->
-            <text x="133" y="100" font-family="'Source Code Pro', monospace" font-size="5" fill="#2A2F3E" text-anchor="middle" letter-spacing="0.1em">BOOTABLE</text>
-            <!-- Lanyard hole -->
-            <circle cx="93" cy="80" r="4" stroke="#2A2F3E" stroke-width="1" fill="none"/>
-          </svg>
+      <a href="project-vector-toolset.html" class="proj">
+        <div class="proj-head">
+          <h3>Vector Toolset</h3>
+          <svg class="arrow" viewBox="0 0 16 16" width="16" height="16" fill="none" aria-hidden="true"><path d="M4 12L12 4M12 4H5M12 4V11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </div>
-        <div class="proj-body">
-          <div class="proj-header">
-            <h3>Vector Toolset</h3>
-          </div>
-          <p class="proj-desc">A bootable WinPE rescue environment with a WPF launcher. The toolkit you bring when nothing else boots.</p>
-          <div class="proj-foot">
-            <span class="proj-tech">C# · WinPE</span>
-            <span class="proj-ver">MIT</span>
-          </div>
+        <p class="proj-desc">A bootable WinPE rescue environment with a WPF launcher. The toolkit you bring when nothing else boots.</p>
+        <div class="proj-foot">
+          <span class="proj-tech">C# · WinPE</span>
+          <span class="status live"><span class="dot"></span>MIT</span>
         </div>
-      </div>
+      </a>
 
     </div>
   </section>
 
-  <section class="about">
-    <p class="section-label">About</p>
-    <p class="about-body">Meridian Software Systems is a California LLC building open-source systems software. Founded in 2026, everything we ship is built in public on GitHub.</p>
+  <section class="about reveal" id="about" aria-labelledby="about-label">
+    <p class="section-label" id="about-label"><span class="num">03</span>About</p>
+    <p class="about-body">Meridian Software Systems is a California LLC building open-source systems software: the infrastructure layer, from the kernel up to the desktop. Founded in 2026, everything we ship is built in public on GitHub.</p>
+    <p class="about-body">The work spans an operating system, a from-scratch microkernel, driver tooling, and a bootable rescue environment. Different problems, one thread running through all of them: give the person at the keyboard real control over their machine.</p>
+  </section>
+
+  <section class="involve reveal" id="involve" aria-labelledby="involve-label">
+    <p class="section-label" id="involve-label"><span class="num">04</span>Get involved</p>
+    <div class="involve-grid">
+      <div class="icard">
+        <h3>Build with us</h3>
+        <p>Every project is developed in the open. Read the code, file an issue, or send a patch; contributions and bug reports are welcome across the projects.</p>
+        <a class="link" href="https://github.com/TrashPanda2481" target="_blank" rel="noopener">
+          View on GitHub <span class="arrow">→</span>
+        </a>
+      </div>
+      <div class="icard">
+        <h3>Follow along <span class="uc-badge">Soon</span></h3>
+        <p>The changelog is getting set up. Release notes and development logs will land there as work ships, project by project.</p>
+        <a class="link" href="blog.html">
+          Visit the changelog <span class="arrow">→</span>
+        </a>
+      </div>
+    </div>
+    <!--
+      Contact channel: primary contact is GitHub issues (works today). To add a
+      direct email or a Discord/community invite, drop it in below, e.g.:
+      <p class="about-body" style="margin-top:24px">
+        For anything else — collaboration, press, or questions —
+        <a href="mailto:you@yourdomain.com" style="color:var(--accent)">email us</a>.
+      </p>
+    -->
+    <p class="about-body" style="margin-top:24px">For anything else, whether collaboration, press, or a question, the fastest way to reach us is to <a href="https://github.com/TrashPanda2481" target="_blank" rel="noopener" style="color:var(--accent)">open an issue or discussion on GitHub</a>.</p>
   </section>
 </main>
 
 <footer>
   <div class="wrap footer-inner">
-    <span class="footer-copy">&copy; 2026 Meridian Software Systems, LLC</span>
-    <span class="footer-loc">Los Angeles, CA</span>
+    <nav class="footer-nav" aria-label="Footer">
+      <a href="#projects">Projects</a>
+      <a href="blog.html">Changelog</a>
+      <a href="#about">About</a>
+      <a href="https://github.com/TrashPanda2481" target="_blank" rel="noopener">GitHub</a>
+    </nav>
+    <div class="footer-meta">
+      <span class="footer-copy">© 2026 Meridian Software Systems, LLC</span>
+      <span class="footer-loc">Los Angeles, CA</span>
+    </div>
   </div>
 </footer>
 
+<script src="assets/site.js" defer></script>
 </body>
 </html>
