@@ -1,0 +1,28 @@
+/* RippleGrid — contained animated grid background behind the hero.
+   Loaded only on pages that use it (currently index.html). */
+
+.hero {
+  position: relative;
+}
+
+/* Hero text and buttons sit above the canvas and stay interactive. */
+.hero > :not(.hero-bg) {
+  position: relative;
+  z-index: 1;
+}
+
+/* The WebGL canvas layer: fills the hero box, behind the content,
+   and transparent to clicks so the hero buttons remain usable. */
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.hero-bg .ripple-grid-canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}

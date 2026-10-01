@@ -17,6 +17,7 @@
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Source+Sans+3:ital,wght@0,400;0,500;0,600;1,400&family=Source+Code+Pro:wght@400;500&display=swap">
   <link rel="stylesheet" href="assets/style.css">
+  <link rel="stylesheet" href="assets/ripple-grid.css">
   <script>document.documentElement.className += " js";</script>
 </head>
 <body>
@@ -52,6 +53,17 @@
 
 <main class="wrap" id="main">
   <section class="hero">
+    <div class="hero-bg" aria-hidden="true"
+         data-ripple-grid
+         data-grid-color="#d26519"
+         data-ripple-intensity="0.03"
+         data-grid-size="6"
+         data-grid-thickness="42"
+         data-mouse-interaction="true"
+         data-mouse-interaction-radius="1"
+         data-opacity="0.8"
+         data-vignette-strength="2.1"
+         data-glow-intensity="0"></div>
     <p class="hero-tag">Control · Focus · Clarity</p>
     <h1>Open-source systems software, from kernel to desktop.</h1>
     <p class="hero-sub">Meridian builds the infrastructure layer: operating systems, drivers, bootable toolkits, and the kernel underneath. Everything ships open-source, built in public.</p>
@@ -187,5 +199,6 @@
 </footer>
 
 <script src="assets/site.js" defer></script>
+<script src="assets/ripple-grid.js" defer></script>
 </body>
 </html>
